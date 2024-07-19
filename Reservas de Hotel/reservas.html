@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiSitio</title>
+    <link rel="stylesheet" href="reservas.css">
+</head>
+<body>
+    <div class="container">
+        <div class="theme-switch">
+            <input type="checkbox" id="theme-switch-checkbox">
+            <label for="theme-switch-checkbox">Modo Oscuro</label>
+        </div>
+
+        <h2>Reservas de Hotel</h2>
+
+        <div class="form-container">
+            <input type="text" id="nom" placeholder="Nombre" required>
+            <input type="text" id="ape" placeholder="Apellido" required>
+            <input type="number" id="num" placeholder="Numero de Habitacion" required>
+            <input type="date" id="entrada" placeholder="Fecha de entrada" required min="<?php echo date('Y-m-d'); ?>">
+            <input type="date" id="salida" placeholder="Fecha de salida" required>
+            <button id="boton" onclick="crearReserva();">Crear Reserva</button>
+        </div>
+
+        <div class="form-container">
+            <h3>Cancelar Reserva</h3>
+            <select id="reservasSelect">
+                <option value="">Selecciona una reserva</option>
+            </select>
+            <button onclick="cancelarReserva();">Cancelar</button>
+        </div>
+
+        <button id="boton2" onclick="mostrarFormulario3();">Mostrar Reservas</button>
+
+        <div id="MostrarDetalles">
+            <h3> Reservas</h3>
+            <table id="tablaReservas">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Habitación</th>
+                        <th>Entrada</th>
+                        <th>Salida</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <button onclick="generarInformeReservas()">Generar Informe</button>
+        </div>
+    </div>
+
+    <script src="reservas.js"></script> 
+    <script src="reservas.js"></script> 
+    <script>
+        const themeSwitch = document.getElementById('theme-switch-checkbox');
+        themeSwitch.addEventListener('change', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+    </script>
+</body>
+</html>
